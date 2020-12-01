@@ -1,3 +1,4 @@
+using IMCWeb.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +24,7 @@ namespace IMCWeb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped(typeof(ILiteDBContext<>), typeof(LiteDBContext<>));
             services.AddControllersWithViews();
         }
 
@@ -51,7 +53,7 @@ namespace IMCWeb
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Login}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=LoginIndex}/{id?}");
             });
         }
     }

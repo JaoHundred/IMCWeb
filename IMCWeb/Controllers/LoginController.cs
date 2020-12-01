@@ -8,7 +8,7 @@ namespace IMCWeb.Controllers
 {
     public class LoginController : Controller
     {
-        public IActionResult Index()
+        public IActionResult LoginIndex()
         {
             return View();
         }
