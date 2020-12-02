@@ -11,9 +11,9 @@ namespace IMCWeb.Controllers
     public class IMCController : Controller
     {
 
-        private ILiteDBContext<IMC> _liteDBContext;
+        private ILiteDBContext _liteDBContext;
 
-        public IMCController(ILiteDBContext<IMC> liteDBContext)
+        public IMCController(ILiteDBContext liteDBContext)
         {
             _liteDBContext = liteDBContext;
         }

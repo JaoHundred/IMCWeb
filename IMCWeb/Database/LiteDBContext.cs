@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IMCWeb.Database
 {
-    public class LiteDBContext<T> : ILiteDBContext<T> where T : class
+    public class LiteDBContext : ILiteDBContext
     {
         public LiteDatabase LiteDatabase { get; }
 
@@ -24,24 +24,5 @@ namespace IMCWeb.Database
             LiteDatabase = new LiteDatabase($"Filename={fullPath}", bsonMapper);
         }
 
-        public IList<T> GetCollection()
-        {
-            return LiteDatabase.GetCollection<T>().FindAll().ToList();
-        }
-
-        public bool Upsert(T model)
-        {
-            return LiteDatabase.GetCollection<T>().Upsert(model);
-        }
-
-        public bool Delete(int index)
-        {
-            return LiteDatabase.GetCollection<T>().Delete(index);
-        }
-
-        public T Find(int index)
-        {
-            return LiteDatabase.GetCollection<T>().FindById(index);
-        }
     }
 }
