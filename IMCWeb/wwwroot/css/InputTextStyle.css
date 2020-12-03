@@ -1,0 +1,13 @@
+﻿.Text{
+    height:30px;
+    text-align:center;
+    background-color:antiquewhite;
+    font-weight:bold;
+}
+
+.Text{
+   display:flex;
+   align-items:center;
+   margin-left:10%;
+   width:80%;
+}

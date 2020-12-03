@@ -1,0 +1,33 @@
+﻿.DivBoxStyle {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+
+
+.DivBoxStyle {
+    background-color: cadetblue;
+    border: solid;
+    border-color: slateblue;
+}
+
+.DivBoxStyle {
+    width: 400px;
+}
+
+p {
+    font-size: xx-large;
+    margin-left: 10px;
+    color: antiquewhite;
+    font-weight: bold;
+}
+
+
+input,p {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}

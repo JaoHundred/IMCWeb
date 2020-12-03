@@ -1,0 +1,25 @@
+﻿.Centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Centered {
+    background-color: cadetblue;
+    border: solid;
+    border-color: slateblue;
+}
+
+.Centered {
+    width: 400px;
+}
+
+
+input{
+    display:flex;
+    align-items:center;
+    margin:20px;
+}
+
+

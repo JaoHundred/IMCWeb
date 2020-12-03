@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IMCWeb.Database
 {
-    public class LiteDBContext : ILiteDBContext
+    public class LiteDBContext : ILiteDBContext, IDisposable
     {
         public LiteDatabase LiteDatabase { get; }
 
@@ -24,5 +24,9 @@ namespace IMCWeb.Database
             LiteDatabase = new LiteDatabase($"Filename={fullPath}", bsonMapper);
         }
 
+        public void Dispose()
+        {
+            LiteDatabase.Dispose();
+        }
     }
 }

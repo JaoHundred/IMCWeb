@@ -4,12 +4,15 @@
     ViewData["Title"] = "Login";
 }
 
-<link rel="stylesheet" href="~/css/LoginStyle.css" />
+<link rel="stylesheet" href="~/css/DivBoxStyle.css" />
+<link rel="stylesheet" href="~/css/ButtonStyle.css" />
+<link rel="stylesheet" href="~/css/InputTextStyle.css" />
 
-<div class="Login">
+<div class="DivBoxStyle">
+    <p>Login</p>
     <form>
-        <input type="text" placeholder="Nome de usuário" />
-        <input type="password" placeholder="Senha" />
+        <input class="Text" type="text" placeholder="Nome de usuário" />
+        <input class="Text" type="password" placeholder="Senha" />
         <a asp-controller="IMC" asp-action="IMCIndex">
             <input class="Button" type="button" value="Logar/Criar" />
         </a>

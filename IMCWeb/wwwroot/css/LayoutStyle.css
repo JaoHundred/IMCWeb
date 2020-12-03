@@ -1,3 +1,9 @@
-﻿body {
+﻿div.Container{
+    display:flex;
+    align-content:center;
+}
+
+body {
     background-color:azure;
 }
+
