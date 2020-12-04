@@ -1,0 +1,12 @@
+﻿div.LogRegister {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    
+}
+
+a, input{
+    width:90%;
+}
+
+
+

@@ -1,0 +1,32 @@
+﻿.DivBoxStyle{
+    display:grid;
+    grid-template-rows:auto 1fr;
+    height:450px;
+}
+
+#Header{
+    grid-row:1;
+}
+
+#Form {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 2fr;
+    grid-row-gap: 0px;
+    grid-row: 2;
+}
+
+#inputUserName{
+    grid-row:1;
+}
+
+#inputPassword {
+    grid-row: 2;
+}
+
+#inputUserPasswordRetry {
+    grid-row: 3;
+}
+
+#button {
+   display:flex;
+}

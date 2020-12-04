@@ -7,28 +7,23 @@ using System.Threading.Tasks;
 
 namespace IMCWeb.Controllers
 {
-    public class LoginController : Controller
+    public class RegisterController : Controller
     {
         private ILiteDBContext _liteDBContext;
 
-        public LoginController(ILiteDBContext liteDBContext)
+        public RegisterController(ILiteDBContext liteDBContext)
         {
             _liteDBContext = liteDBContext;
         }
 
-        public IActionResult LoginIndex()
+        public IActionResult RegisterIndex()
         {
             return View();
         }
 
-        public IActionResult Log()
+        public IActionResult SaveAccount()
         {
-            return Redirect("/IMC/IMCIndex");
-        }
-
-        public IActionResult Register()
-        {
-            return Redirect("/Register/RegisterIndex");
+            return new BadRequestResult();
         }
     }
 }

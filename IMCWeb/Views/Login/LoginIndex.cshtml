@@ -7,15 +7,22 @@
 <link rel="stylesheet" href="~/css/DivBoxStyle.css" />
 <link rel="stylesheet" href="~/css/ButtonStyle.css" />
 <link rel="stylesheet" href="~/css/InputTextStyle.css" />
+<link rel="stylesheet" href="~/css/LoginIndexStyle.css" />
 
 <div class="DivBoxStyle">
     <p>Login</p>
     <form>
         <input class="Text" type="text" placeholder="Nome de usuário" />
         <input class="Text" type="password" placeholder="Senha" />
-        <a asp-controller="IMC" asp-action="IMCIndex">
-            <input class="Button" type="button" value="Logar/Criar" />
-        </a>
+
+        <div class="LogRegister">
+            <a asp-controller="Login" asp-action="Log">
+                <input class="Button" type="button" value="Logar" />
+            </a>
+            <a asp-controller="Login" asp-action="Register">
+                <input class="Button" type="button" value="Criar conta" />
+            </a>
+        </div>
     </form>
 </div>
 

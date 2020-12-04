@@ -11,12 +11,7 @@ namespace IMCWeb.Controllers
     public class IMCController : Controller
     {
 
-        private ILiteDBContext _liteDBContext;
-
-        public IMCController(ILiteDBContext liteDBContext)
-        {
-            _liteDBContext = liteDBContext;
-        }
+       
 
         public IActionResult IMCIndex()
         {
