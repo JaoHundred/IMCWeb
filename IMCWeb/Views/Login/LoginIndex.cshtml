@@ -11,15 +11,20 @@
 
 <div class="DivBoxStyle">
     <p>Login</p>
-    <form>
-        <input class="Text" type="text" placeholder="Nome de usuário" />
-        <input class="Text" type="password" placeholder="Senha" />
+    <form method="post" asp-controller="Login" asp-action="Log">
+        @model IMCWeb.ViewModel.PersonViewModel
+
+        <input class="Text" type="text" placeholder="Nome de usuário"
+               asp-for="UserName" required="" />
+
+        <input class="Text" type="password" placeholder="Senha"
+               asp-for="Password" required="" />
 
         <div class="LogRegister">
-            <a asp-controller="Login" asp-action="Log">
-                <input class="Button" type="button" value="Logar" />
-            </a>
-            <a asp-controller="Login" asp-action="Register">
+
+            <button class="Button" type="submit">Logar</button>
+
+            <a class="AButton" asp-controller="Login" asp-action="Register">
                 <input class="Button" type="button" value="Criar conta" />
             </a>
         </div>

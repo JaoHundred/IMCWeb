@@ -6,8 +6,6 @@
 
 }
 
-
-
 .DivBoxStyle {
     background-color: cadetblue;
     border: solid;
@@ -26,8 +24,8 @@ p {
 }
 
 
-input,p {
+/*input,p {
     display: flex;
     align-items: center;
     margin: 20px;
-}
+}*/

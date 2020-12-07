@@ -13,16 +13,20 @@
 
 <div class="DivBoxStyle">
     <p id="Header">Cadastrar</p>
-    <form id="Form" method="post">
-        <input id="inputUserName" class="Text" type="text" placeholder="Nome de usuário" />
-        <input id="inputPassword" class="Text" type="password" placeholder="Senha" />
-        <input id="inputUserPasswordRetry" class="Text" type="password" placeholder="Digite sua senha novamente" />
+    <form id="Form" method="post" asp-controller="Register" asp-action="SaveAccount">
+        @model IMCWeb.ViewModel.PersonViewModel
+
+        <input id="inputUserName" class="Text" type="text" placeholder="Nome de usuário"
+               required="" asp-for="UserName" />
+
+        <input id="inputPassword" class="Text" type="password" placeholder="Senha"
+               required="" asp-for="Password" />
+
+        <input id="inputUserPasswordRetry" class="Text" type="password" placeholder="Digite sua senha novamente"
+               required="" asp-for="RepeatPassword" />
 
         <div id="button">
-
-        <button asp-controller="Register" asp-action="SaveAccount" class="Button" type="submit">
-            Cadastrar
-        </button>
+            <button class="Button" type="submit">Cadastrar</button>
         </div>
     </form>
 </div>

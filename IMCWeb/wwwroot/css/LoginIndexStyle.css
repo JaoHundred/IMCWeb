@@ -1,11 +1,20 @@
 ﻿div.LogRegister {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-a, input{
-    width:90%;
+.Button{
+    margin: 20px;
+    justify-self: center;
+}
+
+.Text{
+    margin-bottom:20px;
+}
+
+.AButton {
+    margin-right: 20px;
+    height: 10px;
 }
 
 
