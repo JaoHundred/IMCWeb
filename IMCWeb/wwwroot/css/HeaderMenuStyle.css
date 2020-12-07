@@ -1,0 +1,12 @@
+﻿#HeaderMenu {
+    display: flex;
+    flex-direction: column;
+    border-bottom: groove;
+    background-color: lightgray;
+}
+
+#HeaderButtonMenu {
+    width: 100px;
+    align-self:end;
+    margin-right:30px;
+}

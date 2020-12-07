@@ -6,8 +6,13 @@
     <title>@ViewBag.Title</title>
 
     <link rel="stylesheet" href="~/css/LayoutStyle.css" />
+    <link rel="stylesheet" href="~/css/ButtonStyle.css" />
+    <link rel="stylesheet" href="~/css/HeaderMenuStyle.css" />
 </head>
 <body>
+    <header id="HeaderMenu">
+        <a id="HeaderButtonMenu" ><input class="Button" type="button" value="Sair"/></a>
+    </header>
     <div class="Container">
         @RenderBody()
     </div>
