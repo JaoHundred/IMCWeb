@@ -5,16 +5,17 @@
 
 .Button{
     margin: 20px;
+    width:90%;
     justify-self: center;
 }
 
 .Text{
-    margin-bottom:20px;
+    margin-top:20px;
 }
 
 .AButton {
     margin-right: 20px;
-    height: 10px;
+    height: 1px;
 }
 
 
