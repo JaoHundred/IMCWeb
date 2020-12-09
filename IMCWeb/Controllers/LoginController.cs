@@ -40,7 +40,7 @@ namespace IMCWeb.Controllers
 
                 if (personLogin.PasswordHash.SequenceEqual(encryptPass))
                 {
-                    return Redirect("/IMC/IMCIndex");
+                    return Redirect($"/IMC/IMCIndex/{personLogin.Id}");
                 }
             }
 

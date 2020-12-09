@@ -2,23 +2,23 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-        Layout = "_Layout";
-        ViewData["Title"] = "IMC";
+    Layout = "_Layout";
+    ViewData["Title"] = "IMC";
 }
 
-<link rel="stylesheet" href="~/css/IMCStyle.css"/>
+<link rel="stylesheet" href="~/css/IMCStyle.css" />
 <link rel="stylesheet" href="~/css/DivBoxStyle.css" />
 <link rel="stylesheet" href="~/css/InputTextStyle.css" />
 <link rel="stylesheet" href="~/css/ButtonStyle.css" />
 
 <div class="DivBoxStyle">
 
-<p >Calcule seu IMC</p>
-<form>
-    <input class="Text" type="text" placeholder="Altura"/>
-    <input class="Text" type="text" placeholder="Peso"/>
-    <a class="AButton">
-        <input class="Button" type="button" value="Calcular"/>
-    </a>
-</form>
+    <p>Calcule seu IMC</p>
+    <form method="post" asp-controller="IMC" asp-action="CalculateIMC">
+        @model IMCWeb.Models.IMC
+
+        <input class="Text" type="text" placeholder="Altura" asp-for="Height" />
+        <input class="Text" type="text" placeholder="Peso" asp-for="Weight" />
+        <button class="Button" type="submit">Calcular</button>
+    </form>
 </div>
