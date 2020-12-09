@@ -30,7 +30,7 @@ namespace IMCWeb.Controllers
         public IActionResult Log([FromForm] PersonViewModel personViewModel)
         {
             PersonLogin personLogin = _liteDBContext.LiteDatabase.GetCollection<PersonLogin>()
-                .FindAll().FirstOrDefault(p => p.UserName == personViewModel.UserName );
+                .FindOne(p => p.UserName == personViewModel.UserName );
 
             if (personLogin != null)
             {

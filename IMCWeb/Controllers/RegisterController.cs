@@ -59,10 +59,6 @@ namespace IMCWeb.Controllers
 
                     return Redirect("/Login/LoginIndex");
                 }
-                else
-                {
-                    return new BadRequestResult();
-                }
             }
             return new BadRequestResult();
         }
