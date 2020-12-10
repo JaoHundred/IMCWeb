@@ -1,8 +1,8 @@
-﻿.Text {
+﻿input[type=text] {
     margin-top: 20px;
 }
 
-.Button {
+button {
     margin: 20px;
     align-self: center;
     width: 90%;

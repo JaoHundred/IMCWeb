@@ -1,0 +1,16 @@
+﻿.ErrorMessageDiv {
+    display: flex;
+    background-color: #e54444;
+    height: 30px;
+    justify-content: center;
+    border-radius: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+label {
+    font-size: 22px;
+    color: white;
+    font-weight: bolder;
+    align-self: center;
+}

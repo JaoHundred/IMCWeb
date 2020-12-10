@@ -1,31 +1,45 @@
 ﻿
 @{
+    @using IMCWeb.UTIL;
+
     Layout = "_Layout";
     ViewData["Title"] = "Login";
+
 }
 
 <link rel="stylesheet" href="~/css/DivBoxStyle.css" />
-<link rel="stylesheet" href="~/css/ButtonStyle.css" />
-<link rel="stylesheet" href="~/css/InputTextStyle.css" />
 <link rel="stylesheet" href="~/css/LoginIndexStyle.css" />
+<link rel="stylesheet" href="~/css/ErrorMessageStyle.css" />
 
 <div class="DivBoxStyle">
     <p>Login</p>
-    <form method="post" asp-controller="Login" asp-action="Log" >
+
+    @{
+        var errorMessage = ViewData[ErrorMessageConst.LoginErrorKey];
+
+        if (errorMessage != null)
+        {
+            <div class="ErrorMessageDiv">
+                <label>@errorMessage</label>
+            </div>
+        }
+    }
+
+    <form method="post" asp-controller="Login" asp-action="Log">
         @model IMCWeb.ViewModel.PersonViewModel
 
-        <input class="Text" type="text" placeholder="Nome de usuário"
+        <input type="text" placeholder="Nome de usuário"
                asp-for="UserName" required="" />
 
-        <input class="Text" type="password" placeholder="Senha"
+        <input type="password" placeholder="Senha"
                asp-for="Password" required="" />
 
         <div class="LogRegister">
 
-            <button class="Button" type="submit">Logar</button>
+            <button type="submit">Logar</button>
 
-            <a class="AButton" asp-controller="Login" asp-action="Register">
-                <input class="Button" type="button" value="Criar conta" />
+            <a asp-controller="Login" asp-action="Register">
+                <input type="button" value="Criar conta" />
             </a>
         </div>
     </form>

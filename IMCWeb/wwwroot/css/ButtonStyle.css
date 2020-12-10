@@ -1,22 +1,22 @@
-﻿.Button {
+﻿input[type=button], button {
     background-color: blueviolet;
     color: antiquewhite;
     border: groove;
     border: none;
-    text-decoration:dashed;
-    height:30px;
-    font-size:15px;
-    font-weight:bold;
+    text-decoration: dashed;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
-.Button:hover {
-    background-color: darkmagenta;
-}
+    input[type=button]:hover, button:hover {
+        background-color: darkmagenta;
+    }
 
-.Button:focus {
-    background-color: darkorchid;
-}
+    input[type=button]:focus, button:focus {
+        background-color: darkorchid;
+    }
 
-a{
-    text-decoration:none;
+a {
+    text-decoration: none;
 }

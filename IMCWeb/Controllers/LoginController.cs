@@ -9,17 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using IMCWeb.Models;
 using Microsoft.AspNetCore.Identity;
+using IMCWeb.UTIL;
 
 namespace IMCWeb.Controllers
 {
     public class LoginController : Controller
     {
-        private ILiteDBContext _liteDBContext;
-
         public LoginController(ILiteDBContext liteDBContext)
         {
             _liteDBContext = liteDBContext;
         }
+
+        private ILiteDBContext _liteDBContext;
 
         public IActionResult LoginIndex()
         {
@@ -29,23 +30,31 @@ namespace IMCWeb.Controllers
         [HttpPost]
         public IActionResult Log([FromForm] PersonViewModel personViewModel)
         {
-            PersonLogin personLogin = _liteDBContext.LiteDatabase.GetCollection<PersonLogin>()
-                .FindOne(p => p.UserName == personViewModel.UserName );
-
-            if (personLogin != null)
+            try
             {
-                byte[] password = Encoding.ASCII.GetBytes(personViewModel.Password);
-                byte[] salt = personLogin.PasswordSalt;
-                byte[] encryptPass = EncryptionService.GenerateHash(password, salt);
+                PersonLogin personLogin = _liteDBContext.LiteDatabase.GetCollection<PersonLogin>()
+                .FindOne(p => p.UserName == personViewModel.UserName);
 
-                if (personLogin.PasswordHash.SequenceEqual(encryptPass))
+                if (personLogin != null)
                 {
-                    return Redirect($"/IMC/IMCIndex/{personLogin.Id}");
+                    byte[] password = Encoding.ASCII.GetBytes(personViewModel.Password);
+                    byte[] salt = personLogin.PasswordSalt;
+                    byte[] encryptPass = EncryptionService.GenerateHash(password, salt);
+
+                    if (personLogin.PasswordHash.SequenceEqual(encryptPass))
+                    {
+                        return Redirect($"/User/UserIndex/{personLogin.Id}");
+                    }
                 }
             }
+            catch (Exception)
+            {
+                ViewData[ErrorMessageConst.LoginErrorKey] = ErrorMessageConst.LoginError;
+                //TODO: criar método de extensão que salva em banco os logs de erro
+            }
 
-            //TODO:modificar o retorno para usuário não cadastrado/errado
-            return new BadRequestResult();
+            ViewData[ErrorMessageConst.LoginErrorKey] = ErrorMessageConst.LoginError;
+            return View("LoginIndex");
         }
 
         public IActionResult Register()

@@ -8,8 +8,6 @@
 
 <link rel="stylesheet" href="~/css/IMCStyle.css" />
 <link rel="stylesheet" href="~/css/DivBoxStyle.css" />
-<link rel="stylesheet" href="~/css/InputTextStyle.css" />
-<link rel="stylesheet" href="~/css/ButtonStyle.css" />
 
 <div class="DivBoxStyle">
 
@@ -17,8 +15,8 @@
     <form method="post" asp-controller="IMC" asp-action="CalculateIMC">
         @model IMCWeb.Models.IMC
 
-        <input class="Text" type="text" placeholder="Altura" asp-for="Height" />
-        <input class="Text" type="text" placeholder="Peso" asp-for="Weight" />
-        <button class="Button" type="submit">Calcular</button>
+        <input type="text" placeholder="Altura" asp-for="Height" />
+        <input type="text" placeholder="Peso" asp-for="Weight" />
+        <button type="submit">Calcular</button>
     </form>
 </div>

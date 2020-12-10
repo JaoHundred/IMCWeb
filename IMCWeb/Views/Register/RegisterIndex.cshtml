@@ -7,8 +7,6 @@
 }
 
 <link rel="stylesheet" href="~/css/DivBoxStyle.css" />
-<link rel="stylesheet" href="~/css/ButtonStyle.css" />
-<link rel="stylesheet" href="~/css/InputTextStyle.css" />
 <link rel="stylesheet" href="~/css/RegisterStyle.css" />
 
 <div class="DivBoxStyle">
@@ -16,15 +14,15 @@
     <form id="Form" method="post" asp-controller="Register" asp-action="SaveAccount">
         @model IMCWeb.ViewModel.PersonViewModel
 
-        <input id="inputUserName" class="Text" type="text" placeholder="Nome de usuário"
+        <input id="inputUserName" type="text" placeholder="Nome de usuário"
                required="" asp-for="UserName" />
 
-        <input id="inputPassword" class="Text" type="password" placeholder="Senha"
+        <input id="inputPassword" type="password" placeholder="Senha"
                required="" asp-for="Password" />
 
-        <input id="inputUserPasswordRetry" class="Text" type="password" placeholder="Digite sua senha novamente"
+        <input id="inputUserPasswordRetry" type="password" placeholder="Digite sua senha novamente"
                required="" asp-for="RepeatPassword" />
 
-        <button id="button" class="Button" type="submit">Cadastrar</button>
+        <button id="button" type="submit">Cadastrar</button>
     </form>
 </div>

@@ -3,17 +3,17 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.Button{
+input[type=button], button{
     margin: 20px;
     width:90%;
     justify-self: center;
 }
 
-.Text{
-    margin-top:20px;
+input[type=text], input[type=password] {
+    margin-top: 20px;
 }
 
-.AButton {
+a {
     margin-right: 20px;
     height: 1px;
 }

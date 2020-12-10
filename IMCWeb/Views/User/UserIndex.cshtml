@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @using IMCWeb.Models;
+
+    Layout = "_Layout";
+    ViewData["Title"] = "Por aqui o nome do usuário";
+}
+
+
+<div class="LateralDiv">
+    <aside class="UserOptionsAside">
+        <label class="UserLabelHeader">Bem vindo (por aqui o nome do usuário)</label>
+        <a asp-controller="User" asp-action="IMC">
+            <input type="button" value="IMC"/>
+        </a>
+        <a asp-controller="User" asp-action="LogOut">
+            <input type="button" value="Sair"/>
+        </a>
+    </aside>
+</div>
+
+<div class="UserContainer">
+</div>
