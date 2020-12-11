@@ -8,6 +8,9 @@ namespace IMCWeb.Controllers
 {
     public class UserController : Controller
     {
+
+        //TODO: criar css para a view deste controller
+
         public IActionResult UserIndex()
         {
             return View();
