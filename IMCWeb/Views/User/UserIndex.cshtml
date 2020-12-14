@@ -8,18 +8,22 @@
     ViewData["Title"] = "Por aqui o nome do usuário";
 }
 
+<link href="~/css/UserIndexStyle.css" rel="stylesheet" />
 
-<div class="LateralDiv">
-    <aside class="UserOptionsAside">
-        <label class="UserLabelHeader">Bem vindo (por aqui o nome do usuário)</label>
-        <a asp-controller="User" asp-action="IMC">
-            <input type="button" value="IMC"/>
-        </a>
-        <a asp-controller="User" asp-action="LogOut">
-            <input type="button" value="Sair"/>
-        </a>
-    </aside>
-</div>
 
-<div class="UserContainer">
+
+<aside>
+    <label id="UserLabelHeader">Bem vindo (por aqui o nome do usuário)</label>
+    <a id="IMCButton" asp-controller="User" asp-action="IMC">
+        <input class="ButtonIMC" type="button" value="IMC" />
+    </a>
+    <a id="ExitButton" asp-controller="User" asp-action="LogOut">
+        <input class="ButtonExit" type="button" value="Sair" />
+    </a>
+</aside>
+
+<div class="UserContent">
+    <label>
+        blablabla
+    </label>
 </div>

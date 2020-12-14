@@ -1,0 +1,32 @@
+﻿aside {
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr;
+    height: 100%;
+    width: 250px;
+    border-right: 5px groove rgb(28, 154, 154);
+    margin: 10px;
+}
+
+
+#UserLabelHeader {
+    grid-row: 1;
+}
+
+#IMCButton{
+    grid-row: 2;
+}
+
+#ExitButton{
+    grid-row: 3;
+}
+
+a, input[type=button]{
+    height:40px;
+    width:150px;
+    margin-left:5px;
+}
+
+.UserContent {
+    height: 100%;
+    width: 100%;
+}
