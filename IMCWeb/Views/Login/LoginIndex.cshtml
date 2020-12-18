@@ -12,30 +12,40 @@
 
 
 <div class="DivBoxStyle">
-    <p>Login</p>
 
-    @{
-        var errorMessage = ViewData[ErrorMessageConst.LoginErrorKey];
+    <div class="FormContainer">
 
-    }
+        <p>Login</p>
 
-    <form method="post" asp-controller="Login" asp-action="Log">
-        @model IMCWeb.ViewModel.PersonViewModel
+        @{
+            var errorMessage = ViewData[ErrorMessageConst.LoginErrorKey];
 
-        <input type="text" placeholder="Nome de usuário"
-               asp-for="UserName" required="" />
+            if (errorMessage != null)
+            {
+                <div class="ErrorMessage">
+                    <label class="ErrorMessage">@errorMessage</label>
+                </div>
+            }
+        }
 
-        <input type="password" placeholder="Senha"
-               asp-for="Password" required="" />
+        <form method="post" asp-controller="Login" asp-action="Log">
+            @model IMCWeb.ViewModel.PersonViewModel
 
-        <div class="LogRegister">
+            <input type="text" placeholder="Nome de usuário"
+                   asp-for="UserName" required="" />
 
-            <button type="submit">Logar</button>
+            <input type="password" placeholder="Senha"
+                   asp-for="Password" required="" />
 
-            <a class="Button" asp-controller="Login" asp-action="Register">
-                Criar Conta
-            </a>
-        </div>
-    </form>
+            <div class="LogRegister">
+
+                <button type="submit">Logar</button>
+
+                <a class="Button" asp-controller="Login" asp-action="Register">
+                    Criar Conta
+                </a>
+            </div>
+        </form>
+    </div>
 </div>
 

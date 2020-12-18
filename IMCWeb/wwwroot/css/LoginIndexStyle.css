@@ -15,5 +15,10 @@ input[type=text], input[type=password] {
 
 
 
+.FormContainer{
+    display:flex;
+    flex-direction:column;
+}
+
 
 

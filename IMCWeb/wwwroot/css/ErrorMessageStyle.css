@@ -1,4 +1,4 @@
-﻿.ErrorMessageDiv {
+﻿div.ErrorMessage {
     display: flex;
     background-color: #e54444;
     height: 30px;
@@ -8,15 +8,9 @@
     margin-right: 3px;
 }
 
-label {
+label.ErrorMessage {
     font-size: 22px;
     color: white;
     font-weight: bolder;
     align-self: center;
-}
-
-
-
-.ErrorMessageDivHidden{
-    visibility:hidden;
 }
