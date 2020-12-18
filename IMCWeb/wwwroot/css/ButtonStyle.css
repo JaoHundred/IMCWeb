@@ -1,4 +1,4 @@
-﻿input[type=button], button {
+﻿.Button, button {
     background-color: blueviolet;
     color: antiquewhite;
     border: groove;
@@ -7,17 +7,22 @@
     height: 30px;
     font-size: 15px;
     font-weight: bold;
-    border-radius:4px;
+    border-radius: 4px;
+    
 }
 
-    input[type=button]:hover, button:hover {
+.Button:hover, button:hover {
         background-color: darkmagenta;
     }
 
-    input[type=button]:focus, button:focus {
+.Button:focus, button:focus {
         background-color: darkorchid;
     }
 
-a {
+.Button {
     text-decoration: none;
+    text-align: center;
+    line-height: 210%;
+    font-weight: bold;
+    cursor: context-menu;
 }

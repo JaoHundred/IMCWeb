@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="~/css/DivBoxStyle.css" />
 <link rel="stylesheet" href="~/css/LoginIndexStyle.css" />
-<link rel="stylesheet" href="~/css/ErrorMessageStyle.css" />
+
 
 <div class="DivBoxStyle">
     <p>Login</p>
@@ -17,12 +17,6 @@
     @{
         var errorMessage = ViewData[ErrorMessageConst.LoginErrorKey];
 
-        if (errorMessage != null)
-        {
-            <div class="ErrorMessageDiv">
-                <label>@errorMessage</label>
-            </div>
-        }
     }
 
     <form method="post" asp-controller="Login" asp-action="Log">
@@ -38,8 +32,8 @@
 
             <button type="submit">Logar</button>
 
-            <a asp-controller="Login" asp-action="Register">
-                <input type="button" value="Criar conta" />
+            <a class="Button" asp-controller="Login" asp-action="Register">
+                Criar Conta
             </a>
         </div>
     </form>
