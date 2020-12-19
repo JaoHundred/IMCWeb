@@ -24,7 +24,7 @@ namespace IMCWeb.Controllers
 
         public IActionResult LogOut()
         {
-            return View();
+            return Redirect("/Login/LoginIndex");
         }
         
     }
