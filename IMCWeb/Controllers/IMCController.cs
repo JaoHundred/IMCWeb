@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 using IMCWeb.Database;
 using IMCWeb.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using IMCWeb.Repository;
 
 namespace IMCWeb.Controllers
 {
     public class IMCController : Controller
     {
-
-        private ILiteDBContext _dBContext;
-
-        public IMCController(ILiteDBContext liteDBContext)
+        public IMCController(IBaseRepository<IMC> IMCbaseRepository, IBaseRepository<PersonLogin> PersonLoginbaseRepository) 
         {
-            _dBContext = liteDBContext;
+            _IMCbaseRepository = IMCbaseRepository;
+            _PersonLoginbaseRepository = PersonLoginbaseRepository;
         }
+
+        private IBaseRepository<IMC> _IMCbaseRepository;
+        private IBaseRepository<PersonLogin> _PersonLoginbaseRepository;
 
         public IActionResult IMCIndex()
         {

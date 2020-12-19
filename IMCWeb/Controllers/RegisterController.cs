@@ -8,17 +8,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IMCWeb.Repository;
 
 namespace IMCWeb.Controllers
 {
     public class RegisterController : Controller
     {
-        private ILiteDBContext _liteDBContext;
-
-        public RegisterController(ILiteDBContext liteDBContext)
+        public RegisterController(IBaseRepository<PersonLogin> baseRepository)
         {
-            _liteDBContext = liteDBContext;
+            _baseRepository = baseRepository;
         }
+
+        private IBaseRepository<PersonLogin> _baseRepository;
 
         public IActionResult RegisterIndex()
         {
@@ -33,7 +34,7 @@ namespace IMCWeb.Controllers
 
             if (password.SequenceEqual(repeatPassword))
             {
-                var collection = _liteDBContext.LiteDatabase.GetCollection<PersonLogin>();
+                var collection = _baseRepository.GetAllData().ToList();
 
                 bool newUser = !collection.Exists(p => p.UserName == PersonViewModel.UserName);
 
@@ -52,7 +53,7 @@ namespace IMCWeb.Controllers
                         UserName = PersonViewModel.UserName,
                     };
 
-                    collection.Insert(personLogin);
+                    _baseRepository.Add(personLogin);
 
                     //TODO: substituir depois para informações visuais mais precisas
                     // retirar os badrequest e por avisos de que determinado campo está errado ou que a conta já existe

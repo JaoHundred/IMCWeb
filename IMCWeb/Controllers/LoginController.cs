@@ -10,17 +10,18 @@ using System.Threading.Tasks;
 using IMCWeb.Models;
 using Microsoft.AspNetCore.Identity;
 using IMCWeb.UTIL;
+using IMCWeb.Repository;
 
 namespace IMCWeb.Controllers
 {
     public class LoginController : Controller
     {
-        public LoginController(ILiteDBContext liteDBContext)
+        public LoginController(IBaseRepository<PersonLogin> baseRepository)
         {
-            _liteDBContext = liteDBContext;
+            _baseRepository = baseRepository;
         }
 
-        private ILiteDBContext _liteDBContext;
+        private IBaseRepository<PersonLogin> _baseRepository;
 
         public IActionResult LoginIndex()
         {
@@ -32,8 +33,8 @@ namespace IMCWeb.Controllers
         {
             try
             {
-                PersonLogin personLogin = _liteDBContext.LiteDatabase.GetCollection<PersonLogin>()
-                .FindOne(p => p.UserName == personViewModel.UserName);
+                PersonLogin personLogin = _baseRepository.GetAllData()
+                    .FirstOrDefault(p => p.UserName == personViewModel.UserName);
 
                 if (personLogin != null)
                 {
