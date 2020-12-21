@@ -2,22 +2,24 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    @using IMCWeb.Models;
+    @using IMCWeb.UTIL;
 
     Layout = "_Layout";
     ViewData["Title"] = "Por aqui o nome do usuário";
+
 }
+
+@model IMCWeb.Models.PersonLogin;
 
 <link href="~/css/UserIndexStyle.css" rel="stylesheet" />
 
 
-
 <aside>
-    <label id="UserLabelHeader">Bem vindo (por aqui o nome do usuário)</label>
+    <label id="UserLabelHeader">Bem vindo @Model.UserName</label>
     <a id="IMCButton" class="Button" asp-controller="User" asp-action="IMC">
         IMC
     </a>
-    <a id="ExitButton" class="Button"  asp-controller="User" asp-action="LogOut">
+    <a id="ExitButton" class="Button" asp-controller="User" asp-action="LogOut">
         Sair
     </a>
 </aside>

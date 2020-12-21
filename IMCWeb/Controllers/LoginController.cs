@@ -44,6 +44,7 @@ namespace IMCWeb.Controllers
 
                     if (personLogin.PasswordHash.SequenceEqual(encryptPass))
                     {
+                        TempData.Put(nameof(PersonLogin), personLogin);
                         return Redirect($"/User/UserIndex/{personLogin.Id}");
                     }
                 }

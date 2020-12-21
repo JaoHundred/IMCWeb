@@ -12,7 +12,17 @@
 </head>
 <body>
     <div class="Container">
-        @RenderBody()
+        @{
+            @RenderBody();
+            //TODO: estudar como montar o menu lateral que existe em UserIndex(a tag aside) para renderizar ele como seção
+            if (Model == null)
+            {
+            }
+            else
+            {
+                //RenderSection("LateralMenu");
+            }
+        }
     </div>
 </body>
 </html>
