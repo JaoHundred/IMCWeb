@@ -13,7 +13,7 @@
 
     <p>Calcule seu IMC</p>
     <form method="post" asp-controller="IMC" asp-action="CalculateIMC">
-        @model IMCWeb.Models.IMC
+        @model IMCWeb.ViewModel.IMCViewModel
 
         <input type="text" placeholder="Altura" asp-for="Height" />
         <input type="text" placeholder="Peso" asp-for="Weight" />

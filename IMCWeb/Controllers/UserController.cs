@@ -25,25 +25,26 @@ namespace IMCWeb.Controllers
 
         public IActionResult UserIndex()
         {
-            var personLogin = _personBaseRepository.FindData(TempData.Peek<PersonLogin>(nameof(PersonLogin)).Id);
+            var personLogin = _personBaseRepository.FindData(TempData.PeekExt<PersonLogin>(nameof(PersonLogin)).Id);
             return View(personLogin);
         }
 
         public IActionResult IMC()
         {
             //TODO: aparentemente não tem como fazer isso, estudar mais e ver se o uso pelo tempdata é o mais correto
-            var personLogin = _personBaseRepository.FindData(TempData.Peek<PersonLogin>(nameof(PersonLogin)).Id);
+            var personLogin = _personBaseRepository.FindData(TempData.PeekExt<PersonLogin>(nameof(PersonLogin)).Id);
             return Redirect($"/IMC/IMCIndex/{personLogin.Id}");
         }
 
         public IActionResult AllIMC()
         {
+            //TODO: ainda a implementar a tela com a tabela com todos os valores de altura peso e imc por usuário
             return Redirect("/IMC/IMCAll");
         }
 
         public IActionResult LogOut()
         {
-            _ = TempData.Get<PersonLogin>(nameof(PersonLogin));
+            _ = TempData.GetExt<PersonLogin>(nameof(PersonLogin));
             return Redirect("/Login/LoginIndex");
         }
 

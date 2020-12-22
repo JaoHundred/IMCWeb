@@ -9,18 +9,18 @@ namespace IMCWeb.UTIL
 {
     public static class TempDataExtension
     {
-        public static void Put<T>(this ITempDataDictionary tempData, string key, T value) where T : class
+        public static void PutExt<T>(this ITempDataDictionary tempData, string key, T value) where T : class
         {
             tempData[key] = JsonSerializer.Serialize(value);
         }
 
-        public static T Get<T>(this ITempDataDictionary tempData, string key) where T : class
+        public static T GetExt<T>(this ITempDataDictionary tempData, string key) where T : class
         {
             tempData.TryGetValue(key, out object data);
             return data == null ? null : JsonSerializer.Deserialize<T>((string)data);
         }
 
-        public static T Peek<T>(this ITempDataDictionary tempData, string key) where T : class
+        public static T PeekExt<T>(this ITempDataDictionary tempData, string key) where T : class
         {
             object data = tempData.Peek(key);
             return data == null ? null : JsonSerializer.Deserialize<T>((string)data);

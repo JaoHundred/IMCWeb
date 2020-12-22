@@ -39,5 +39,21 @@ namespace IMCWeb.Repository
         {
             return _dBContext.LiteDatabase.GetCollection<T>().FindById(id);
         }
+
+        public bool Upsert(T data, int id)
+        {
+           var obj = FindData(id);
+
+            if (obj == null)
+            {
+                Add(data);
+                return true;
+            }
+            else
+            {
+                Update(obj, id);
+                return true;
+            }
+        }
     }
 }

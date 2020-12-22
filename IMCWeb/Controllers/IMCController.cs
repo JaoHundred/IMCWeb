@@ -7,12 +7,15 @@ using IMCWeb.Database;
 using IMCWeb.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using IMCWeb.Repository;
+using IMCWeb.Service;
+using IMCWeb.UTIL;
+using IMCWeb.ViewModel;
 
 namespace IMCWeb.Controllers
 {
     public class IMCController : Controller
     {
-        public IMCController(IBaseRepository<IMC> IMCbaseRepository, IBaseRepository<PersonLogin> PersonLoginbaseRepository) 
+        public IMCController(IBaseRepository<IMC> IMCbaseRepository, IBaseRepository<PersonLogin> PersonLoginbaseRepository)
         {
             _IMCbaseRepository = IMCbaseRepository;
             _PersonLoginbaseRepository = PersonLoginbaseRepository;
@@ -32,11 +35,27 @@ namespace IMCWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult CalculateIMC([FromForm] IMC imc)
+        public IActionResult CalculateIMC([FromForm] IMCViewModel imcViewModel)
         {
-            //TODO: ver como pegar o id do usuário logado
+            var person = TempData.PeekExt<PersonLogin>(nameof(PersonLogin));
 
-            return new BadRequestResult();
+            var imc = new IMC
+            {
+                Height = imcViewModel.Height,
+                Weight = imcViewModel.Weight,
+            };
+
+            imc.IMCResult = IMCService.Calculate(imc.Height, imc.Weight);
+            
+            _IMCbaseRepository.Upsert(imc, imc.Id);
+
+            person.IMC = imc;
+            _PersonLoginbaseRepository.Upsert(person, person.Id);
+
+
+            //TODO:adicionar o resultado no objeto imc e o objeto imc no banco(ver como funciona a referência no litedb
+
+            return Redirect("/User/UserIndex");
         }
     }
 }

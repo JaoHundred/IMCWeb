@@ -12,6 +12,8 @@ namespace IMCWeb.Repository
 
         bool Update(T data, int id);
 
+        bool Upsert(T data, int id);
+
         IEnumerable<T> GetAllData();
 
         T FindData(int id);
