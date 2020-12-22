@@ -1,29 +1,35 @@
 ﻿aside {
-    display: grid;
-    grid-template-rows: 2fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    width: 250px;
+    min-width: 200px;
     border-right: 5px groove rgb(28, 154, 154);
-    margin: 10px;
+    background-color: rgba(145, 185, 185, 0.40);
+    margin: 0px 10px 0px 0px;
+}
+
+#LateralMenuHeaderDiv {
+    border-bottom: 5px groove rgb(28, 154, 154);
+    background-color: rgba(19, 103, 103, 0.39);
+    height: 100px;
+    margin-bottom:10px;
 }
 
 
-#UserLabelHeader {
-    grid-row: 1;
+#HeaderSpanTextDiv{
+    display:flex;
+    flex-direction:column;
+    align-content:center;
+    justify-content:center; 
+    height:100%;
 }
 
-#IMCButton{
-    grid-row: 2;
+span.span1, span.span2 {
+    text-align: center;
+    color: white;
+    font-size: 30px;
 }
 
-#ExitButton{
-    grid-row: 3;
-}
-
-.Button{
-    width:150px;
-    margin-left:5px;
-}
 
 .UserContent {
     height: 100%;

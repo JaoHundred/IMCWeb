@@ -26,6 +26,11 @@ namespace IMCWeb.Controllers
             return View();
         }
 
+        public IActionResult IMCAll()
+        {
+            return View("/IMC/IMCAll");
+        }
+
         [HttpPost]
         public IActionResult CalculateIMC([FromForm] IMC imc)
         {

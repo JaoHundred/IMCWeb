@@ -15,11 +15,23 @@
 
 
 <aside>
-    <label id="UserLabelHeader">Bem vindo @Model.UserName</label>
-    <a id="IMCButton" class="Button" asp-controller="User" asp-action="IMC">
+    <div id="LateralMenuHeaderDiv">
+
+        @if (Model != null)
+        {
+            <div id="HeaderSpanTextDiv">
+                <span class="span1">Bem vindo</span>
+                <span class="span2">@Model.UserName</span>
+            </div>
+        }
+    </div>
+    <a class="SideMenuItem" asp-controller="User" asp-action="IMC">
         IMC
     </a>
-    <a id="ExitButton" class="Button" asp-controller="User" asp-action="LogOut">
+    <a class="SideMenuItem" asp-controller="User" asp-action="AllIMC">
+        Todos IMC
+    </a>
+    <a class="SideMenuItem" asp-controller="User" asp-action="LogOut">
         Sair
     </a>
 </aside>
