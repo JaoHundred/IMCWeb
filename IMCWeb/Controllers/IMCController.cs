@@ -31,7 +31,12 @@ namespace IMCWeb.Controllers
 
         public IActionResult IMCAll()
         {
-            return View("/IMC/IMCAll");
+            var imcs = _IMCbaseRepository.GetAllData();
+            TempData.PutExt(nameof(imcs), imcs);
+
+            //TODO:terminar de estilizar a tabela da view abaixo e ver como por essa view dentro de uma parte da IMCIndex(a parte do conteúdo)
+            //TODO: ver também como relacionar as duas tabelas do litedb(personlogin e imc)
+            return View("~/Views/IMC/IMCAll.cshtml");
         }
 
         [HttpPost]
@@ -46,7 +51,7 @@ namespace IMCWeb.Controllers
             };
 
             imc.IMCResult = IMCService.Calculate(imc.Height, imc.Weight);
-            
+
             _IMCbaseRepository.Upsert(imc, imc.Id);
 
             person.IMC = imc;

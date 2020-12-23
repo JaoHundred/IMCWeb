@@ -1,0 +1,16 @@
+﻿
+div.TableContainerDiv{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+table{
+    margin-top:200px;
+    align-self:center;
+}
+
+table, td, th {
+    border: solid black 1px;
+    padding: 5px;
+}

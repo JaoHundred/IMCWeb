@@ -2,7 +2,33 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    @using IMCWeb.UTIL;
+
+    IEnumerable<IMC> imcs;
+    imcs = TempData.PeekExt<IEnumerable<IMC>>(nameof(imcs));
 }
 
+<link href="~/css/IMCAllStyle.css" rel="stylesheet" />
 
-<h1>teste</h1>
+@model IMCWeb.Models.PersonLogin;
+
+<div class="TableContainerDiv">
+
+    <table >
+        <tr>
+            <th>Usuário</th>
+            <th>Altura</th>
+            <th>Peso</th>
+            <th>Índice de massa corpórea(IMC)</th>
+        </tr>
+        @foreach (var data in imcs)
+        {
+            <tr>
+                <td></td>
+                <td>@data.Height</td>
+                <td>@data.Weight</td>
+                <td>@data.IMCResult</td>
+            </tr>
+        }
+    </table>
+</div>
