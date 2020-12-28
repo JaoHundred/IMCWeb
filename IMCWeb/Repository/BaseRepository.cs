@@ -51,7 +51,7 @@ namespace IMCWeb.Repository
             }
             else
             {
-                Update(obj, id);
+                Update(data, id);
                 return true;
             }
         }

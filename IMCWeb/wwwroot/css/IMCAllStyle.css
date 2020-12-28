@@ -13,4 +13,18 @@ table{
 table, td, th {
     border: solid black 1px;
     padding: 5px;
+    text-align:center;
+}
+
+table{
+    background-color:azure;
+}
+
+td.tdOtherUser, th {
+    background-color: rgb(234, 234, 234);
+}
+
+td.tdActualUser{
+    background-color:greenyellow;
+    font-weight:bold;
 }

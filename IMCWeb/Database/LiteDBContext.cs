@@ -16,8 +16,7 @@ namespace IMCWeb.Database
         {
             var bsonMapper = BsonMapper.Global;
 
-            bsonMapper.Entity<PersonLogin>().Id(p => p.Id).DbRef(p => p.IMC);
-            bsonMapper.Entity<IMC>().Id(p => p.Id);
+            bsonMapper.Entity<PersonLogin>().Id(p => p.Id);
 
             string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "database.db");
 

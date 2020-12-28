@@ -15,13 +15,11 @@ namespace IMCWeb.Controllers
 {
     public class IMCController : Controller
     {
-        public IMCController(IBaseRepository<IMC> IMCbaseRepository, IBaseRepository<PersonLogin> PersonLoginbaseRepository)
+        public IMCController(IBaseRepository<PersonLogin> PersonLoginbaseRepository)
         {
-            _IMCbaseRepository = IMCbaseRepository;
             _PersonLoginbaseRepository = PersonLoginbaseRepository;
         }
 
-        private IBaseRepository<IMC> _IMCbaseRepository;
         private IBaseRepository<PersonLogin> _PersonLoginbaseRepository;
 
         public IActionResult IMCIndex()
@@ -31,8 +29,8 @@ namespace IMCWeb.Controllers
 
         public IActionResult IMCAll()
         {
-            var imcs = _IMCbaseRepository.GetAllData();
-            TempData.PutExt(nameof(imcs), imcs);
+            var people = _PersonLoginbaseRepository.GetAllData().ToList();
+            TempData.PutExt(nameof(people), people);
 
             //TODO:terminar de estilizar a tabela da view abaixo e ver como por essa view dentro de uma parte da IMCIndex(a parte do conteúdo)
             //TODO: ver também como relacionar as duas tabelas do litedb(personlogin e imc)
@@ -42,23 +40,26 @@ namespace IMCWeb.Controllers
         [HttpPost]
         public IActionResult CalculateIMC([FromForm] IMCViewModel imcViewModel)
         {
-            var person = TempData.PeekExt<PersonLogin>(nameof(PersonLogin));
 
-            var imc = new IMC
+            try
             {
-                Height = imcViewModel.Height,
-                Weight = imcViewModel.Weight,
-            };
+                var person = TempData.PeekExt<PersonLogin>(nameof(PersonLogin));
 
-            imc.IMCResult = IMCService.Calculate(imc.Height, imc.Weight);
+                var imc = new IMC
+                {
+                    Height = imcViewModel.Height,
+                    Weight = imcViewModel.Weight,
+                };
 
-            _IMCbaseRepository.Upsert(imc, imc.Id);
+                imc.IMCResult = IMCService.Calculate(imc.Height, imc.Weight);
+                person.IMC = imc;
 
-            person.IMC = imc;
-            _PersonLoginbaseRepository.Upsert(person, person.Id);
+                _PersonLoginbaseRepository.Upsert(person, person.Id);
 
-
-            //TODO:adicionar o resultado no objeto imc e o objeto imc no banco(ver como funciona a referência no litedb
+            }
+            catch (Exception)
+            {
+            }
 
             return Redirect("/User/UserIndex");
         }

@@ -4,30 +4,46 @@
 @{
     @using IMCWeb.UTIL;
 
-    IEnumerable<IMC> imcs;
-    imcs = TempData.PeekExt<IEnumerable<IMC>>(nameof(imcs));
+    PersonLogin actualPerson = TempData.PeekExt<PersonLogin>(nameof(PersonLogin));
+
+    IEnumerable<PersonLogin> people;
+    people = TempData.PeekExt<IEnumerable<PersonLogin>>(nameof(people));
 }
 
 <link href="~/css/IMCAllStyle.css" rel="stylesheet" />
 
-@model IMCWeb.Models.PersonLogin;
 
 <div class="TableContainerDiv">
 
-    <table >
+    <table>
         <tr>
             <th>Usuário</th>
             <th>Altura</th>
             <th>Peso</th>
             <th>Índice de massa corpórea(IMC)</th>
+            <th>Status IMC</th>
         </tr>
-        @foreach (var data in imcs)
+        @foreach (var data in people)
         {
+
+            if (data.IMC == null)
+                continue;
+
             <tr>
-                <td></td>
-                <td>@data.Height</td>
-                <td>@data.Weight</td>
-                <td>@data.IMCResult</td>
+                @{
+                    string className;
+
+                    if (data.Id == actualPerson.Id)
+                        className = "tdActualUser";
+                    else
+                        className = "tdOtherUser";
+
+                    <td class="@className">@data.UserName</td>
+                    <td class="@className">@data.IMC.Height</td>
+                    <td class="@className">@data.IMC.Weight</td>
+                    <td class="@className">@data.IMC.IMCResult.ToString("F")</td>
+                    <td class="@className">@data.IMC.IMCStatus()</td>
+                }
             </tr>
         }
     </table>
