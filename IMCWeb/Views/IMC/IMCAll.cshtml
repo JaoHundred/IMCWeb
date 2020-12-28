@@ -7,7 +7,7 @@
     PersonLogin actualPerson = TempData.PeekExt<PersonLogin>(nameof(PersonLogin));
 
     IEnumerable<PersonLogin> people;
-    people = TempData.PeekExt<IEnumerable<PersonLogin>>(nameof(people));
+    people = TempData.GetExt<IEnumerable<PersonLogin>>(nameof(people));
 }
 
 <link href="~/css/IMCAllStyle.css" rel="stylesheet" />

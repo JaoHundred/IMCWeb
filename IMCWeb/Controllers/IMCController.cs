@@ -33,7 +33,6 @@ namespace IMCWeb.Controllers
             TempData.PutExt(nameof(people), people);
 
             //TODO:terminar de estilizar a tabela da view abaixo e ver como por essa view dentro de uma parte da IMCIndex(a parte do conteúdo)
-            //TODO: ver também como relacionar as duas tabelas do litedb(personlogin e imc)
             return View("~/Views/IMC/IMCAll.cshtml");
         }
 
