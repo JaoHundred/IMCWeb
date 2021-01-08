@@ -31,7 +31,7 @@ span.span1, span.span2 {
 }
 
 
-.UserContent {
+#UserContent {
     height: 100%;
     width: 100%;
 }

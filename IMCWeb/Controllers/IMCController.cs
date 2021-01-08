@@ -29,17 +29,16 @@ namespace IMCWeb.Controllers
 
         public IActionResult IMCAll()
         {
-            var people = _PersonLoginbaseRepository.GetAllData().ToList();
-            TempData.PutExt(nameof(people), people);
+            IEnumerable<PersonLogin> people = _PersonLoginbaseRepository.GetAllData();
+            TempData.PutExt(nameof(IEnumerable<PersonLogin>), people);
 
-            //TODO:terminar de estilizar a tabela da view abaixo e ver como por essa view dentro de uma parte da IMCIndex(a parte do conteúdo)
             return View("~/Views/IMC/IMCAll.cshtml");
         }
 
         [HttpPost]
         public IActionResult CalculateIMC([FromForm] IMCViewModel imcViewModel)
         {
-
+            //TODO: criar tratamento na view, não deixar que seja digitado letras onde deveria ter números
             try
             {
                 var person = TempData.PeekExt<PersonLogin>(nameof(PersonLogin));
@@ -60,6 +59,7 @@ namespace IMCWeb.Controllers
             {
             }
 
+            //TODO: modificar o redirect abaixo e retornar apenas uma mensagem de sucesso de dados gravados
             return Redirect("/User/UserIndex");
         }
     }

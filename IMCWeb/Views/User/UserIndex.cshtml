@@ -3,32 +3,29 @@
 *@
 @{
     @using IMCWeb.UTIL;
+    PersonLogin user = TempData.PeekExt<PersonLogin>(nameof(PersonLogin));
 
     Layout = "_Layout";
-    ViewData["Title"] = "Por aqui o nome do usuário";
+    ViewData["Title"] = user.UserName;
 
 }
 
-@model IMCWeb.Models.PersonLogin;
+
+
 
 <link href="~/css/UserIndexStyle.css" rel="stylesheet" />
 
-
 <aside>
     <div id="LateralMenuHeaderDiv">
-
-        @if (Model != null)
-        {
-            <div id="HeaderSpanTextDiv">
-                <span class="span1">Bem vindo</span>
-                <span class="span2">@Model.UserName</span>
-            </div>
-        }
+        <div id="HeaderSpanTextDiv">
+            <span class="span1">Bem vindo</span>
+            <span class="span2">@user.UserName</span>
+        </div>
     </div>
-    <a class="SideMenuItem" asp-controller="User" asp-action="IMC">
+    <a id="IMCMenu" class="SideMenuItem" onclick="LoadView('User','IMC','UserContent')">
         IMC
     </a>
-    <a class="SideMenuItem" asp-controller="User" asp-action="AllIMC">
+    <a class="SideMenuItem" onclick="LoadView('User','IMCAll', 'UserContent')">
         Todos IMC
     </a>
     <a class="SideMenuItem" asp-controller="User" asp-action="LogOut">
@@ -36,8 +33,21 @@
     </a>
 </aside>
 
-<div class="UserContent">
-    <label>
-        blablabla
-    </label>
+<div id="UserContent">
+
 </div>
+
+
+<script type="text/javascript">
+
+    async function LoadView(controller, action, divIdentifier) {
+
+        const clientUrl = `/${controller}/${action}`;
+
+        const page = await fetch(clientUrl);
+        const pageHtml = await page.text();
+
+        document.getElementById(divIdentifier).innerHTML = pageHtml;
+    }
+</script>
+

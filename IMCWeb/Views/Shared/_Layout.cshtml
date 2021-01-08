@@ -10,20 +10,11 @@
     <link rel="stylesheet" href="~/css/InputTextStyle.css" />
     <link href="~/css/ErrorMessageStyle.css" rel="stylesheet" />
     <link href="~/css/SideMenuItemStyle.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
     <div class="Container">
-        @{
-            @RenderBody();
-            //TODO: estudar como montar o menu lateral que existe em UserIndex(a tag aside) para renderizar ele como seção
-            if (Model == null)
-            {
-            }
-            else
-            {
-                //RenderSection("LateralMenu");
-            }
-        }
+        @RenderBody()
     </div>
 </body>
 </html>
