@@ -20,7 +20,7 @@ namespace IMCWeb.Database
 
             string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "database.db");
 
-            LiteDatabase = new LiteDatabase($"Filename={fullPath}", bsonMapper);
+            LiteDatabase = new LiteDatabase($"Filename={fullPath};connection=shared", bsonMapper);
         }
 
         public void Dispose()
