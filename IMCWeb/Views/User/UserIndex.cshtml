@@ -15,13 +15,14 @@
 
 <link href="~/css/UserIndexStyle.css" rel="stylesheet" />
 
+
 <aside>
     <div id="LateralMenuHeaderDiv">
         <div id="HeaderSpanTextDiv">
             <span class="span1">Bem vindo</span>
             <span class="span2">@user.UserName</span>
         </div>
-    </div>
+    </div> 
     <a id="IMCMenu" class="SideMenuItem" onclick="LoadView('User','IMC','UserContent')">
         IMC
     </a>
@@ -38,16 +39,4 @@
 </div>
 
 
-<script type="text/javascript">
-
-    async function LoadView(controller, action, divIdentifier) {
-
-        const clientUrl = `/${controller}/${action}`;
-
-        const page = await fetch(clientUrl);
-        const pageHtml = await page.text();
-
-        document.getElementById(divIdentifier).innerHTML = pageHtml;
-    }
-</script>
-
+<script src="~/js/Load.js" type="text/javascript"></script>
