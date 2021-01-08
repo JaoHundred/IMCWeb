@@ -1,2 +1,2 @@
 # IMCWeb
-Blazor ASP dot net core test
+ASP net core mvc test
